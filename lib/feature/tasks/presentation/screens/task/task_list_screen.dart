@@ -68,32 +68,35 @@ class TaskScreen extends ConsumerWidget {
                     SizedBox(width: width * 0.02),
                     SizedBox(
                       height: height * 0.05,
-                      child: Container(
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: const BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: Stack(
-                          children: [
-                            const Icon(
-                              Icons.notifications,
-                              color: AppColors.background,
-                              size: 25.0,
-                            ),
-                            Positioned(
-                              top: 2,
-                              right: 6,
-                              child: Container(
-                                height: 9,
-                                width: 9,
-                                decoration: const BoxDecoration(
-                                  color: AppColors.background,
-                                  shape: BoxShape.circle,
+                      child: InkWell(
+                        onTap: ()=> GoRouter.of(context).push(Routes.listCountries),
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: const BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          child: Stack(
+                            children: [
+                              const Icon(
+                                Icons.travel_explore,
+                                color: AppColors.background,
+                                size: 25.0,
+                              ),
+                              Positioned(
+                                top: 2,
+                                right: 6,
+                                child: Container(
+                                  height: 9,
+                                  width: 9,
+                                  decoration: const BoxDecoration(
+                                    color: AppColors.background,
+                                    shape: BoxShape.circle,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -361,7 +364,6 @@ class TaskScreen extends ConsumerWidget {
                       lineHeight: 20.0,
                       animationDuration: 2000,
                       percent: taskState.completedPercentage / 100,
-                      // percent: 40/100,
                       center: Text(
                         "Progreso del trabajo: ${taskState.completedPercentage.toStringAsFixed(1)}%",
                         style: Theme.of(context).textTheme.titleMedium

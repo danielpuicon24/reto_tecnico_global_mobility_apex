@@ -62,15 +62,13 @@ class _AddEditTaskScreenState extends ConsumerState<AddEditTaskScreen> {
   }
 
   String _formatTimeOfDay(TimeOfDay time) {
-    final int hour = time.hourOfPeriod; // Hora en formato de 12 horas
-    final String period = time.period == DayPeriod.am ? 'AM' : 'PM'; // AM o PM
-    final String minute = time.minute.toString().padLeft(
-      2,
-      '0',
-    ); // Minutos con 2 dígitos
+    final String hour = time.hourOfPeriod.toString().padLeft(2, '0');
+    final String minute = time.minute.toString().padLeft(2, '0');
+    final String period = time.period == DayPeriod.am ? 'AM' : 'PM';
 
     return '$hour:$minute $period';
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -313,15 +311,12 @@ class _AddEditTaskScreenState extends ConsumerState<AddEditTaskScreen> {
                         ? DateTime.now().millisecondsSinceEpoch
                         : widget.task!.id,
                     title: taskTitleController.text,
-                    // description: taskDescriptionController.text,
                     description: taskDescriptiontController.text,
                     priority: state.selectedPriority,
                     dateTask: taskDateController.text,
                     timeTask: taskTimeController.text,
                     isCompleted: widget.task?.isCompleted ?? false,
                   );
-
-                  debugPrint('TAREA ENVIADA : ${task.toString()}');
 
                   final success = widget.isNew
                       ? await taskController.saveNewTask(task)

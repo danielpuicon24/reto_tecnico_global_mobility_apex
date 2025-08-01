@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:reto_tecnico_apex/feature/tasks/presentation/screens/task/task_list_screen.dart';
+import '../../feature/countries/presentation/screens/country_list_screen.dart';
 import '../../feature/tasks/presentation/screens/task/ad_edit_task_arguments.dart';
 import '../../feature/tasks/presentation/screens/task/add_edit_task_screen.dart';
 
@@ -33,9 +34,8 @@ final router = GoRouter(
     ),
     GoRoute(
       path: Routes.listCountries,
-      builder: (context, state) => const TaskScreen(),
+      builder: (context, state) => const CountryListPage(),
     ),
-
   ],
 );
 

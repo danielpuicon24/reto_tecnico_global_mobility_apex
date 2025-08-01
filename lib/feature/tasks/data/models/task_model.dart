@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../../domain/entities/task.dart';
 
 class TaskModel extends Task {
@@ -13,13 +15,15 @@ class TaskModel extends Task {
 
   factory TaskModel.fromJsonAPI(Map<String, dynamic> json) {
     final now = DateTime.now();
+    final formattedDate = DateFormat('dd/MM/yyyy').format(now);
+    final formattedTime = DateFormat('hh:mm a').format(now);
     return TaskModel(
       id: json['id'],
       title: json['title'] ?? '',
       description: 'Project from API',
       priority: 'Baja',
-      dateTask: now.toIso8601String().split('T').first,
-      timeTask: now.toIso8601String().split('T').last.substring(0, 5),
+      dateTask: formattedDate,
+      timeTask: formattedTime,
       isCompleted: json['completed'] ?? false,
     );
   }
