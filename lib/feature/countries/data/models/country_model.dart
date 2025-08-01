@@ -8,11 +8,13 @@ class CountryModel {
   final String code;
   final String name;
   final String emoji;
+  final String phone;
 
   const CountryModel({
     required this.code,
     required this.name,
     required this.emoji,
+    required this.phone,
   });
 
   factory CountryModel.fromJson(Map<String, dynamic> json) =>
@@ -25,6 +27,7 @@ class CountryModel {
       code: code,
       name: name,
       emoji: emoji,
+      phone: phone,
     );
   }
 
@@ -33,6 +36,7 @@ class CountryModel {
       code: country.code,
       name: country.name,
       emoji: country.emoji,
+      phone: country.phone,
     );
   }
 }

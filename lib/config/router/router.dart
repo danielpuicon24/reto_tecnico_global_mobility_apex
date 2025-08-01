@@ -36,7 +36,6 @@ final router = GoRouter(
       path: Routes.listCountries,
       builder: (context, state) => const CountryListPage(),
     ),
-
   ],
 );
 

@@ -79,7 +79,7 @@ class TaskScreen extends ConsumerWidget {
                           child: Stack(
                             children: [
                               const Icon(
-                                Icons.notifications,
+                                Icons.travel_explore,
                                 color: AppColors.background,
                                 size: 25.0,
                               ),
@@ -364,7 +364,6 @@ class TaskScreen extends ConsumerWidget {
                       lineHeight: 20.0,
                       animationDuration: 2000,
                       percent: taskState.completedPercentage / 100,
-                      // percent: 40/100,
                       center: Text(
                         "Progreso del trabajo: ${taskState.completedPercentage.toStringAsFixed(1)}%",
                         style: Theme.of(context).textTheme.titleMedium
