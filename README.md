@@ -84,6 +84,11 @@ Ubicación:
 - flutter_test
 
 📸 Capturas de Pantalla 
+1. Tareas
+https://github.com/user-attachments/assets/8f56bb64-07fe-4ca6-99e1-d4d1046899a5
+
+2.  Lista de Países
+![WhatsApp Image 2025-08-02 at 4 07 49 AM](https://github.com/user-attachments/assets/af4dc780-3b9e-4018-9e66-ce18233c3fd6)
 
 
 🚀 Cómo ejecutar
