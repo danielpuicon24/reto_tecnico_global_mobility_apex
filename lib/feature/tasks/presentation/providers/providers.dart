@@ -1,15 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reto_tecnico_apex/core/services/services_cache.dart';
-import 'package:reto_tecnico_apex/feature/tasks/domain/usecases/deleted_task.dart';
-import 'package:reto_tecnico_apex/feature/tasks/domain/usecases/update_task.dart';
-import 'package:reto_tecnico_apex/feature/tasks/domain/usecases/save_task.dart';
+import 'package:reto_tecnico_apex/feature/tasks/domain/usecases/deleted_task_usecase.dart';
+import 'package:reto_tecnico_apex/feature/tasks/domain/usecases/update_task_usecase.dart';
+import 'package:reto_tecnico_apex/feature/tasks/domain/usecases/save_task_usecase.dart';
 import 'package:reto_tecnico_apex/feature/tasks/presentation/providers/task_controller.dart';
 
 import '../../../../core/network/dio_client.dart';
 import '../../data/datasource/task_datasource.dart';
 import '../../data/repository_impl/task_repository_impl.dart';
-import '../../domain/usecases/completed_task.dart';
-import '../../domain/usecases/get_all_tasks.dart';
+import '../../domain/usecases/completed_task_usecase.dart';
+import '../../domain/usecases/get_all_tasks_usecase.dart';
 
 final cache = CacheService();
 
@@ -23,29 +23,29 @@ StateNotifierProvider<TaskController, TaskState>((ref) {
   return TaskController(getAllTasks, getCompletedTasks, getSaveTask, getUpdateTask, getDeleteTask);
 });
 
-final getAllTasksProvider = Provider<GetAllTasks>((ref) {
+final getAllTasksProvider = Provider<GetAllTasksUseCase>((ref) {
   final repository = ref.watch(taskRepositoryProvider);
-  return GetAllTasks(repository);
+  return GetAllTasksUseCase(repository);
 });
 
-final getCompletedTasksProvider = Provider<CompleteTask>((ref) {
+final getCompletedTasksProvider = Provider<CompleteTaskUseCase>((ref) {
   final repository = ref.watch(taskRepositoryProvider);
-  return CompleteTask(repository);
+  return CompleteTaskUseCase(repository);
 });
 
-final getSaveTaskProvider = Provider<SaveTask>((ref) {
+final getSaveTaskProvider = Provider<SaveTaskUseCase>((ref) {
   final repository = ref.watch(taskRepositoryProvider);
-  return SaveTask(repository);
+  return SaveTaskUseCase(repository);
 });
 
-final getUpdateTaskProvider = Provider<UpdateTask>((ref) {
+final getUpdateTaskProvider = Provider<UpdateTaskUseCase>((ref) {
   final repository = ref.watch(taskRepositoryProvider);
-  return UpdateTask(repository);
+  return UpdateTaskUseCase(repository);
 });
 
-final getDeleteTaskProvider = Provider<DeletedTask>((ref) {
+final getDeleteTaskProvider = Provider<DeletedTaskUseCase>((ref) {
   final repository = ref.watch(taskRepositoryProvider);
-  return DeletedTask(repository);
+  return DeletedTaskUseCase(repository);
 });
 
 final taskRepositoryProvider = Provider((ref) {
