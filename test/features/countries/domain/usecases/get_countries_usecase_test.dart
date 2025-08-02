@@ -3,7 +3,9 @@ import 'package:mockito/mockito.dart';
 import 'package:reto_tecnico_apex/feature/countries/domain/entities/country.dart';
 import 'package:reto_tecnico_apex/feature/countries/domain/usecases/get_countries_usecase.dart';
 
-import '../presentation/providers/mocks_country.mocks.dart';
+import '../../presentation/providers/mocks_country.mocks.dart';
+
+
 
 
 void main() {
