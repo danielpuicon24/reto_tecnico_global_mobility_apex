@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/task.dart';
-import '../../domain/usecases/completed_task.dart';
-import '../../domain/usecases/deleted_task.dart';
-import '../../domain/usecases/update_task.dart';
-import '../../domain/usecases/get_all_tasks.dart';
-import '../../domain/usecases/save_task.dart';
+import '../../domain/usecases/completed_task_usecase.dart';
+import '../../domain/usecases/deleted_task_usecase.dart';
+import '../../domain/usecases/update_task_usecase.dart';
+import '../../domain/usecases/get_all_tasks_usecase.dart';
+import '../../domain/usecases/save_task_usecase.dart';
 
 enum FilterOption { all, pending, completed }
 
@@ -52,11 +52,11 @@ class TaskState {
 }
 
 class TaskController extends StateNotifier<TaskState> {
-  final GetAllTasks getAllTasks;
-  final CompleteTask completeTask;
-  final SaveTask saveTask;
-  final UpdateTask editTask;
-  final DeletedTask deletedTask;
+  final GetAllTasksUseCase getAllTasks;
+  final CompleteTaskUseCase completeTask;
+  final SaveTaskUseCase saveTask;
+  final UpdateTaskUseCase editTask;
+  final DeletedTaskUseCase deletedTask;
 
   TaskController(
     this.getAllTasks,
